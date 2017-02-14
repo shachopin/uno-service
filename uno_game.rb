@@ -48,4 +48,12 @@ class UnoGame
     @hands.clear
   end
 
+  def list_players
+    players = []
+    @hands.each do |player|
+      players << player[:name]
+    end
+    players
+  end
+
 end

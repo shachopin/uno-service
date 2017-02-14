@@ -74,3 +74,10 @@ post '/clear' do
   # no return
 end
 
+get 'list' do
+  return_message = {}
+  return_message[:status] = 'success'
+  return_message[:players] = uno.list_players
+  return_message.to_json
+end
+
