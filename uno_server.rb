@@ -71,7 +71,7 @@ end
 
 post '/clear' do
   uno.clear_all_players
-  # no return
+  {status: "success"}.to_json
 end
 
 get '/list' do
