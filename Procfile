@@ -1,1 +1,1 @@
-web: bundle exec ruby main.rb -p $PORT
+web: bundle exec ruby uno_server.rb -p $PORT
