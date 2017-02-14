@@ -16,10 +16,11 @@ uno = UnoGame.new
 before do
    content_type :json    
    headers 'Access-Control-Allow-Origin' => '*', 
-            'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST']  
+            'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST']
 end
 
-get '/cards' do 
+
+get '/cards' do   # test by appending ?name=Dawei in url
   return_message = {} 
   if params.has_key?('name') 
     cards = uno.get_cards(params['name']) 
@@ -36,7 +37,7 @@ end
 
 # for :data to be a key in the params hash, you can do
 # option 1, query params in the URL
-# option 2, in the requesy body, but go thorugh form data (header has Content-type: application/x-www-form-urlencoded)
+# option 2, in the request body, but go thorugh form data (header has Content-type: application/x-www-form-urlencoded)
 # key type name
 # value type {"name" : "Dawei"}  - has to be the json string fomat, because allowing JSON.parse to work. Cannot do single quotes around key name
 # option 3, use RestClient  and pass the :data like this:
@@ -58,7 +59,7 @@ post '/join' do
   return_message.to_json 
 end 
 
-post '/deal' do 
+post '/deal' do   # post url /deal, no other
   return_message = {} 
   if uno.deal 
     return_message[:status] = 'success' 
