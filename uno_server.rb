@@ -69,3 +69,8 @@ post '/deal' do   # post url /deal, no other
   return_message.to_json 
 end
 
+post '/clear' do
+  uno.clear_all_players
+  # no return
+end
+

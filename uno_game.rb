@@ -44,4 +44,8 @@ class UnoGame
     cards 
   end 
 
+  def clear_all_players
+    @hands.clear
+  end
+
 end
