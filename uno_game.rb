@@ -13,7 +13,7 @@ class UnoGame
     @deck.concat %w(queen-diamond queen-heart queen-club queen-spade) 
     @deck.concat %w(king-diamond king-heart king-club king-spade) 
     @deck.concat %w(ace-diamond ace-heart ace-club ace-spade) 
-    @deck.concat %w(joker joker) 
+    @deck.concat %w(joker-black joker-red) 
   end 
 
   def join_game player_name 
