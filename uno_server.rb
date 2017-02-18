@@ -42,9 +42,20 @@ end
 # value type {"name" : "Dawei"}  - has to be the json string fomat, because allowing JSON.parse to work. Cannot do single quotes around key name
 # option 3, use RestClient  and pass the :data like this:
 # RestClient.post 'http://localhost:4567/join', :data => {name: @name}.to_json, :accept => :json 
+# option 4, 
+# in $.ajax call pass data: {data: "something"} wihout contentType: "applicaton/json"
+# then will be params[:data]
+
 
 # to parse the json from request body
 # data = JSON.parse( request.body.read )
+# in ajax call, data: JSON.stringify({name}) and contentType: "application/json"
+# if you say it without contentType: "application/json", it works too, but json string is actually passd in form data
+# form data is {"name":"aaa"}:
+# in ruby, JSON.parse(request.body.read) will still return
+# {"name"=>"aaa"}
+# but after that, rerun JSON.parse(request.body.read), gone
+# this only works with ruby. For node js, this way doesn't work. Node.js is't that nice to guess your intention
 
 post '/join' do 
   return_message = {} 
